@@ -1,0 +1,126 @@
+<DOCTYPE! html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Crystals Collector Game</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        </div>
+        <h1>Crystals Collector Game</h1>
+        <p>You will be given a random number at the start of the game. There are four Crystal below. By clicking on a Crystal your will add a specific amount of points to your total score. You win the game by matching your total score to the number to match, you lose the game if your total score is above the number to match. The value of each crystal is hidden from you until you click on it. Each time when the game starts, the game will change the values of each crystal.
+        </p>
+        <h2>Number To Match<p id="generated"></p></>
+
+<div id="win-lose"></div>
+<div id="win-loss-tracker">
+<div><h3>Wins: </h3><p id="wins"></p></div>
+<div><h3>Losses: </h3><p id="losses"></p></div>
+
+<img src="assets/images/greencrystal.png" type="button" id="crystalTwo" style="width:90px;height:75px;">
+<img src="assets/images/redcrystal.png" type="button" id="crystalThree" style="width:90px;height:75px;">
+<img src="assets/images/bluecrystal.png" type="button" id="crystalFour" style="width:90px;height:75px;">
+<img src="assets/images/yellowcrystal.png" type="button" id="crystalFive" style="width:90px;height:75px;">
+
+<br>
+<br>
+<input type="button" value="reset" id="reset-button" />
+<div><h3>Your Total Number</h3> <p id="yourTotalScore">
+</p></div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script type="text/javascript">
+$( document ).ready(function(){
+var yourNumber = 0;
+var wins = 0;
+var losses = 0;
+var yourTotalScore = 0;
+var randomNumber = Math.floor((Math.random() * 120) + 18);
+$('#generated').html(randomNumber);
+
+var restart = function () {
+
+wins = 0;
+losses = 0;
+yourTotalScore = 0;
+
+$("#yourTotalScore").html(yourTotalScore);
+$('#wins').html(wins);
+$("#losses").html(losses);
+
+var randomNumber = Math.floor((Math.random() * 120) + 18);
+$('#generated').html(randomNumber);
+}
+
+$('#reset-button').on('click', restart);
+var newYourNumber = function yourNumber(min, max) {
+return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+$("#crystalTwo").click(function(){
+var randomOnClick = newYourNumber(1, 12);
+console.log(randomOnClick);
+yourTotalScore = yourTotalScore + randomOnClick;
+$("#yourTotalScore").html(yourTotalScore);
+if (yourTotalScore == randomNumber) {
+wins++;
+$('#wins').html(wins); alert("Congratulations you won!");
+}
+if (yourTotalScore > randomNumber){
+losses++;
+$("#losses").html(losses); yourTotalScore = 0; $("#yourTotalScore").html(yourTotalScore); alert("No match try again!"); 
+}
+});
+
+$("#crystalThree").click(function(){
+var randomOnClick = newYourNumber(1 , 12);
+console.log(randomOnClick);
+yourTotalScore = yourTotalScore + randomOnClick;
+$("#yourTotalScore").html(yourTotalScore);
+if (yourTotalScore == randomNumber) {
+wins++;
+$('#wins').html(wins); alert("Congratulations you won!");
+}
+if (yourTotalScore > randomNumber){
+losses++;
+$("#losses").html(losses); yourTotalScore = 0; $("#yourTotalScore").html(yourTotalScore); alert("No match try again!");
+} 
+});
+
+$("#crystalFour").click(function(){
+var randomOnClick = newYourNumber(1 , 12);
+console.log(randomOnClick);
+yourTotalScore = yourTotalScore + randomOnClick;
+$("#yourTotalScore").html(yourTotalScore);
+if (yourTotalScore == randomNumber) {
+wins++;
+$('#wins').html(wins); alert("Congratulations you won!");
+}
+if (yourTotalScore > randomNumber){
+losses++;
+$("#losses").html(losses); yourTotalScore = 0; $("#yourTotalScore").html(yourTotalScore); alert("No match try again!");
+} 
+});
+
+$("#crystalFive").click(function(){
+var randomOnClick = newYourNumber(1 , 12);
+console.log(randomOnClick);
+yourTotalScore = yourTotalScore + randomOnClick;
+$("#yourTotalScore").html(yourTotalScore);
+if (yourTotalScore == randomNumber) {
+wins++;
+$('#wins').html(wins); alert("Congratulations you won!");
+}
+if (yourTotalScore > randomNumber){
+losses++;
+$("#losses").html(losses); yourTotalScore = 0; $("#yourTotalScore").html(yourTotalScore); alert("No match try again!");
+}
+});
+});
+</script>
+</body>
+</html>
